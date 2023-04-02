@@ -1,0 +1,16 @@
+name: comandante-sqlite
+version: 0.0.1
+
+authors:
+  - Tarek Ghaleb <tghaleb@users.noreply.github.com>
+
+crystal: 1.2.0
+
+dependencies:
+  comandante:
+    git: https://github.com/tghaleb/comandante.git
+
+  sqlite3:
+    github: crystal-lang/crystal-sqlite3
+
+license: MIT

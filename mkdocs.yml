@@ -1,0 +1,19 @@
+site_name: Comandante-Zstd
+
+theme:
+  name: windmill
+  highlightjs: true
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: crystal
+      watch: [src]
+
+
+markdown_extensions:
+  - pymdownx.highlight
+  - deduplicate-toc
+
+nav:
+  - Home: index.md
