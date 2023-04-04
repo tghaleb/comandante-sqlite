@@ -1,5 +1,6 @@
 class SQLite3::ResultSet < DB::ResultSet
   {% for n in [8, 16, 32] %}
+  # reads Int{{n}} from sqlite
   def read(t : Int{{n}}.class) : Int{{n}}
     read(Int64).to_i{{n}}
   end
@@ -26,6 +27,7 @@ module Comandante
       Comandante::Cleaner.register(->{ self.close })
     end
 
+    # Will automatically close db on exit or finalize.
     def initialize(file = "")
       # this is here because Crystal doesn't want to accept @db not
       # being initialized before the macro!! A Bug
@@ -38,6 +40,7 @@ module Comandante
       init_db
     end
 
+    # Creates a table from given SQL
     def create_table(tbl_sql)
       @db.exec "create table IF NOT EXISTS " + tbl_sql
     end
